@@ -1,0 +1,135 @@
+/* Background */
+.resume-main {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  font-family: Arial, sans-serif;
+}
+
+/* Main Title */
+.main-title {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+/* Layout */
+.resume-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* Suggestion Box */
+.suggestion-box {
+  width: 400px;
+  background: #0f172a;
+  padding: 25px;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.suggestion-box input,
+.suggestion-box textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.suggestion-box textarea {
+  height: 100px;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Right Side */
+.resume-container {
+  flex: 1;
+  color: white;
+}
+
+.resume-text {
+  margin-top: 20px;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.view-btn,
+.close-btn,
+.download-btn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.view-btn {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+.download-btn {
+  background: linear-gradient(to right, #00b09b, #96c93d);
+}
+
+.close-btn {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+
+.view-btn:hover,
+.close-btn:hover,
+.download-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Resume Viewer */
+.resume-frame {
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+}
+
+/* Actions Row */
+.resume-actions {
+  margin-bottom: 15px;
+}
+
+/* Animation */
+.fade-slide {
+  animation: fadeSlide 0.5s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

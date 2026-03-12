@@ -1,0 +1,158 @@
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Particles */
+
+.particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #38bdf8;
+  border-radius: 50%;
+  animation: float 10s linear infinite;
+}
+
+/* Random positions */
+.particles span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+.particles span:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+.particles span:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+.particles span:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+.particles span:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
+.particles span:nth-child(6) {
+  left: 40%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+
+  0% {
+    bottom: -10px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+
+}
+
+/* Content above particles */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.5s ease;
+}
+
+/* Name */
+.hero-name {
+  font-size: 52px;
+}
+
+.hero-name span {
+  color: #38bdf8;
+}
+
+/* Role */
+.hero-role {
+  font-size: 30px;
+  color: #38bdf8;
+  min-height: 40px;
+}
+
+/* Cursor */
+.cursor {
+  animation: blink 1s infinite;
+}
+
+/* Description */
+.hero-desc {
+  margin-top: 15px;
+  color: #94a3b8;
+}
+
+/* Buttons */
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 14px 28px;
+  margin: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #38bdf8;
+  color: black;
+}
+
+.primary:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #38bdf8;
+}
+
+.secondary {
+  border: 2px solid #38bdf8;
+  color: #38bdf8;
+}
+
+.secondary:hover {
+  background: #38bdf8;
+  color: black;
+}
+
+/* Animations */
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes blink {
+
+  50% {
+    opacity: 0;
+  }
+
+}
