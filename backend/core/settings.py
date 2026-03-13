@@ -131,5 +131,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 X_FRAME_OPTIONS = 'ALLOWALL'
 CORS_ALLOW_ALL_ORIGINS = True
 
+import os
+from django.contrib.auth import get_user_model
 
+def create_admin():
+    User = get_user_model()
+    username = "saurabhvaidya2003@gmail.com"
+    password = "Admin@123"
+    email = "saurabhvaidya2003@gmail.com"
+
+    if not User.objects.filter(username=username).exists():
+        User.objects.create_superuser(username, email, password)
+
+try:
+    create_admin()
+except:
+    pass
 
