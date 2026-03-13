@@ -8,7 +8,7 @@ function Resume() {
   const [showResume, setShowResume] = useState(false);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/resume/")
+    axios.get("https://saurabh-portfolio-m1vt.onrender.com/api/resume/")
       .then(res => setResume(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -65,7 +65,7 @@ function Resume() {
               <div className="resume-actions">
 
                 <a
-                  href={`http://127.0.0.1:8000${resume.file}`}
+                  href={`https://saurabh-portfolio-m1vt.onrender.com${resume.file}`}
                   download
                   className="download-btn"
                 >
@@ -82,7 +82,7 @@ function Resume() {
               </div>
 
               <iframe
-                src={`http://127.0.0.1:8000${resume.file}#toolbar=0`}
+                src={`https://saurabh-portfolio-m1vt.onrender.com${resume.file}#toolbar=0`}
                 title="Resume"
                 className="resume-frame"
               />

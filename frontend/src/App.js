@@ -23,7 +23,7 @@ function App() {
   // Load projects from Django
   useEffect(() => {
 
-    fetch("http://127.0.0.1:8000/api/projects/")
+    fetch("https://saurabh-portfolio-m1vt.onrender.com/api/projects/")
       .then(res => res.json())
       .then(data => setProjects(data))
       .catch(err => console.log(err));
@@ -41,7 +41,7 @@ function App() {
 
     try {
 
-      const response = await fetch("http://127.0.0.1:8000/api/ai/", {
+      const response = await fetch("https://saurabh-portfolio-m1vt.onrender.com/api/ai/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
