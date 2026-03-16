@@ -156,3 +156,22 @@
   }
 
 }
+
+.social-icons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+.social-icons a{
+  font-size:32px;
+  color:#38bdf8;
+  transition:0.3s;
+}
+
+.social-icons a:hover{
+  transform:scale(1.2);
+  color:white;
+  text-shadow:0 0 15px #38bdf8;
+}

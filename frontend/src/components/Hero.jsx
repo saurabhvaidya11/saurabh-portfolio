@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Hero.css";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const roles = [
   "Fullstack Python Developer",
@@ -59,7 +60,6 @@ function Hero() {
 
     <section id="home" className="hero">
 
-      {/* Particles */}
       <div className="particles">
         <span></span>
         <span></span>
@@ -91,6 +91,23 @@ function Hero() {
 
           <a href="#contact" className="btn secondary">
             Contact Me
+          </a>
+
+        </div>
+
+        {/* Social Icons */}
+        <div className="social-icons">
+
+          <a href="https://github.com/saurabhvaidya11" target="_blank" rel="noreferrer">
+            <FaGithub />
+          </a>
+
+          <a href="https://linkedin.com/in/saurabh-vaidya-011525233" target="_blank" rel="noreferrer">
+            <FaLinkedin />
+          </a>
+
+          <a href="https://instagram.com/saurabh_vaidya_1109" target="_blank" rel="noreferrer">
+            <FaInstagram />
           </a>
 
         </div>
