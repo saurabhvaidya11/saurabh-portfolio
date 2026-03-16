@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,8 +79,6 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-import dj_database_url
-
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
@@ -120,9 +120,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -130,7 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 X_FRAME_OPTIONS = 'ALLOWALL'
 CORS_ALLOW_ALL_ORIGINS = True
 
-import os
+
 from django.contrib.auth import get_user_model
 
 def create_admin():
@@ -146,4 +147,3 @@ try:
     create_admin()
 except:
     pass
-
