@@ -8,7 +8,7 @@ function Skills() {
     { name: "Django", level: 85 },
     { name: "React", level: 80 },
     { name: "REST API", level: 85 },
-    { name: "AI Integration", level: 75 },
+    { name: "AI & ML Integration", level: 75 },
     { name: "SQL", level: 80 }
   ];
 
