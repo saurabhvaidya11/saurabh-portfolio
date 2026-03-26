@@ -8,7 +8,6 @@ import AIChat from "./components/AIChat";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 
-
 import "./App.css";
 
 function App() {
@@ -18,7 +17,12 @@ function App() {
 
   // AI Chat state
   const [message, setMessage] = useState("");
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState([
+    {
+      sender: "ai",
+      text: "Hello! I am Saurabh's AI assistant. Ask about projects, skills, or contact."
+    }
+  ]);
 
   // Load projects from Django
   useEffect(() => {
@@ -30,7 +34,6 @@ function App() {
 
   }, []);
 
-
   // Send message to AI
   const sendMessage = async () => {
 
@@ -41,7 +44,7 @@ function App() {
 
     try {
 
-      const response = await fetch("https://saurabh-portfolio-m1vt.onrender.com/api/ai/", {
+      const response = await fetch("https://saurabh-portfolio-m1vt.onrender.com/api/ai_assistant/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -53,9 +56,20 @@ function App() {
 
       const data = await response.json();
 
+      let botReply = data.reply;
+
+      // 🔥 IMPORTANT FIX (SHOW PROJECTS)
+      if (data.projects) {
+        const projectList = data.projects
+          .map(p => `• ${p.title}`)
+          .join("\n");
+
+        botReply += "\n\n" + projectList;
+      }
+
       setChat([
         ...newChat,
-        { sender: "ai", text: data.reply }
+        { sender: "ai", text: botReply }
       ]);
 
     }
@@ -68,7 +82,6 @@ function App() {
     setMessage("");
 
   };
-
 
   return (
 

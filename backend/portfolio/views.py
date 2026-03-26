@@ -80,7 +80,7 @@ def ai_assistant(request):
     elif "skill" in message:
 
         return Response({
-            "reply": "My skills include Python, Django, React, AI integration, REST APIs, and Fullstack development."
+            "reply": "My skills include Python, Django, React, Frontend, AI integration, REST APIs, and Fullstack development."
         })
 
     elif "hire" in message:
@@ -90,40 +90,16 @@ def ai_assistant(request):
         })
 
     elif "who are you" in message:
-        reply = "I am Saurabh's AI assistant. I can tell you about his skills and projects."
+
+        return Response({
+            "reply": "I am Saurabh's AI assistant. I can tell you about his skills and projects."
+        })
 
     else:
 
         return Response({
             "reply": "Hello! I am Saurabh's AI assistant. Ask about projects, skills, or contact."
         })
-
-class ResumeView(APIView):
-
-    def get(self, request):
-
-        resume = Resume.objects.last()
-
-        if resume:
-            serializer = ResumeSerializer(resume)
-            return Response(serializer.data)
-
-        return Response({"error": "No resume uploaded"})
-
-
-class ResumeUploadView(APIView):
-    
-    permission_classes = [IsAdminUser]
-
-    def post(self, request):
-
-        serializer = ResumeSerializer(data=request.data)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 #suggestion create
 @api_view(['POST'])
