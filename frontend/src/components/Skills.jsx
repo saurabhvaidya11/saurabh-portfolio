@@ -6,6 +6,7 @@ function Skills() {
   const skills = [
     { name: "Python", level: 90 },
     { name: "Django", level: 85 },
+    { name: "Frontend (HTML, CSS, JS)", level: 90 },
     { name: "React", level: 80 },
     { name: "REST API", level: 85 },
     { name: "AI & ML Integration", level: 75 },
