@@ -110,3 +110,7 @@ def create_suggestion(request):
         serialize.save()
         return Response({"message": "Suggestion submitted successfully"})
     return Response(serialize.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ResumeView(APIView):
+    def get(self, request):
+        return Response({"message": "Resume Fetched"})
