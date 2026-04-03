@@ -8,7 +8,7 @@ from .serializers import ProjectSerializer, ResumeSerializer, SuggestionSerializ
 from django.conf import settings
 #from openai import OpenAI
 from rest_framework import status
-from .models import Resume
+
 
 
 # Create your views here.
@@ -111,6 +111,32 @@ def create_suggestion(request):
         return Response({"message": "Suggestion submitted successfully"})
     return Response(serialize.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ResumeView(APIView):
     def get(self, request):
-        return Response({"message": "Resume Fetched"})
+        resumes = Resume.objects.last()
+        serializer = ResumeSerializer(resumes, many=True)
+        return Response(serializer.data)
+
+class ResumeUploadView(APIView):
+    def post(self, request):
+        title = request.data.get('title')
+        file = request.FILES.get('file')
+
+        if not title or not file:
+            return Response(
+                {"error": "Title and file are required"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        resume = Resume.objects.create(
+            title=title,
+            file=file
+        )
+
+        serializer = ResumeSerializer(resume)
+
+        return Response({
+            "message": "Resume uploaded successfully",
+            "data": serializer.data
+        }, status=status.HTTP_201_CREATED)
